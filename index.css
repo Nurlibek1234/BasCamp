@@ -1,66 +1,138 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-
 *{
           margin: 0;
-          padding: 8px;
+          padding: 0;
           font-family: "poppins";
           box-sizing: border-box;
 }
-
 
 body{
           display: flex;
-          font-family: "poppins";
-          box-sizing: border-box;
+          background: #0c1022;
           justify-content: center;
-          padding: 30px;
-}
-
-.photo{
-          height: 330px;
           align-items: center;
-          margin-left: 63px;
+          min-height: 100vh;
+          overflow: hidden;
 }
-
-.container {
+.container{
+          position: relative;
+          width: 390px;
+          height: 590px;
+          background: rgba(0, 0, 0.75);
+          border-radius: 20px;
           display: flex;
           justify-content: center;
           align-items: center;
-          font-size: 15px;
+          padding-inline: 32px;
+          overflow: hidden;
 }
-
-.collobrate{
+.container::before{
+          content: "";
+          position: absolute;
+          height: 650px;
+          width: 650px;
+          background: conic-gradient(
+                    transparent, transparent, transparent, #d400d4
+          );
+          animation: animate 4s linear infinite;
+          animation-delay: -2s;
+}
+.container::after{
+          content: "";
+          position: absolute;
+          height: 650px;
+          width: 650px;
+          background: conic-gradient(
+                    transparent, transparent, transparent, #00cfff
+          );
+          animation: animate 4s linear infinite;
+}
+@keyframes animate{
+          0%{
+                    transform: rotate(0);
+          }
+          100%{
+                    transform: rotate(360deg);
+          }
+}
+.image{
+          position: absolute;
+          inset: 5px;
+          background-color: #0c1022;
+          z-index: 1;
+          border-radius: 16px;    
+}
+.form-box{
           display: flex;
           justify-content: center;
           align-items: center;
-          padding: 10px;
-          font-size: 33px;
+          min-height: 60vh; 
 }
-
-.switch {
-          justify-content: space-between;
-          display: flex;
-          border-radius: 7px;
-          font-size: 14px;
-          padding: 10px;
-          margin-left: 10px;
+.form-box .form h2{
+          font-size: 32px;
+          color: #fff;
+          text-align: center;
 }
+.form .input-box{
+       position: relative;
+       margin: 30px;
+       width: 310px;
+       border-bottom: 2px solid #fff;   
+} 
 
-#signin{
-       padding: 5px 25px;
-       background: linear-gradient(90deg, #01fcf9, #00ecf0);
-       border-radius: 50px;
+.input-box input{
+       width: 100%;
+       height: 50px;
+       background: transparent;
+       border: none;
+       outline: none;
+       font-size: 16px;
+       padding: 0 35px 0 5px;
+       color: #fff;
+}
+.input:focus ~ label,
+input:valid ~ label{
+       top: -5px;
+}
+.input-box label{
+       position: absolute;
+       color: #fff;
+       top: 50%;
+       left: 5px;
+       transform: translateY(-50%);
+       font-size: 16px;
+       pointer-events: none;
+       transform: .3s;
+}
+.group{
+       display: flex;
+       justify-content: space-between;
+       font-size: 13px;
+       padding-left: 30px;
+}
+.group a{
+       position: relative;
+       top: -15px;
+       color: #fff;
+       text-decoration: none;
+       font-weight: 500;
+       padding-right: 28px;
+}
+button{
+       height: 40px;
+       width: 90px;
        font-size: 15px;
-       margin-top: 10px;
-       text-transform: uppercase;
+       font-weight: 700;
        cursor: pointer;
+       outline: none;
+       border: none;
+       border-radius: 5px;
 }
-#signup{
-       padding: 5px 25px;
-       background: linear-gradient(90deg, #01fcf9, #00ecf0);
-       border-radius: 50px;
-       font-size: 15px;
-       margin-top: 10px;
-       text-transform: uppercase;
-       cursor: pointer;
+button:focus{
+       color: #fff;
+       background-color: #0c1022;
+       border: 2px solid #fff;
+}
+.butoon {
+       padding-left: 30px;
 }
